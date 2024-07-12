@@ -1,5 +1,6 @@
 
 var http = require('http');
+const { type } = require('os');
 var URL = require('url');
 
 
@@ -11,7 +12,10 @@ var server = http.createServer(function(req,res){
  var myF=myobjat.host;
  var myB=myobjat.pathname;
  var myc=myobjat.search;
- write(myB)
+
+ res.writeHead(200,{'content-type':'text/html'})
+ write(myB);
+ res.end()
 
 
 
