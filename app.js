@@ -1,24 +1,19 @@
 
 var http = require('http');
-const { type } = require('os');
-var URL = require('url');
+var fs = require('fs')
+
 
 
 var server = http.createServer(function(req,res){
- var myOne = "http://rabbil.com/blog.html?year=2020&month=july"
 
- var myobjat =URL.parse(myOne.true);
+    if(req.url="/"){
+        fs.readFile('home.html',function (error,data){
 
- var myF=myobjat.host;
- var myB=myobjat.pathname;
- var myc=myobjat.search;
-
- res.writeHead(200,{'content-type':'text/html'})
- write(myB);
- res.end()
-
-
-
+            res.writeHead(200,{'content-type':'text/html'});
+            res.write(data);
+            res.end()
+        })
+    }
 
 })
 
